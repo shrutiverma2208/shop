@@ -34,3 +34,8 @@
     margin-top: -9px;
     padding-bottom: 2px;
 }
+@media screen and (max-width: 60px) {
+    .icon-text {
+      font-size: 30px;
+    }
+  }

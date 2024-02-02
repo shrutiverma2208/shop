@@ -10,8 +10,8 @@ const Button = ({mainImage,iconImage, mainText, subText, onClick }) => {
             <div className='tiles-bottom'> 
                 <img src={iconImage} style={{height:'4.5vh',width:'4.5vh',borderRadius:'10px'}}></img>
                 <div className='icon-text'>
-                  <h3 style={{margin:'3px',fontSize:'2vw'}}>{mainText}</h3>
-                  <h4 style={{margin:'3px',fontSize:'1.5vw'}}>{subText}</h4>
+                  <h3 style={{margin:'3px'}}>{mainText}</h3>
+                  <h4 style={{margin:'3px'}}>{subText}</h4>
                 </div>
                
                 </div>
