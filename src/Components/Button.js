@@ -5,6 +5,7 @@ import buttonImg from './buttonImg.css'
 const Button = ({mainImage,iconImage, mainText, subText, onClick }) => {
   return (
     <div className='container'>
+      <h3>Nearby Merchants</h3>
         <button className='tiles-full' onClick={onClick}>
             <img src={mainImage} alt='tiles-img' style={{height:'37vh', width:'39vh', borderRadius:'15px'}}></img>
             <div className='tiles-bottom'> 
