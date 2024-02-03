@@ -4,7 +4,7 @@ import {useState} from 'react';
 
 const AddDeduct = () => {
 
-  const[number,setNumber]=useState('0')
+  const[number,setNumber]=useState(0)
 
  
   const handleAdd=()=>{
