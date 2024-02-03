@@ -49,3 +49,7 @@ font-size: 0;
     border: 0.5px solid rgb(201, 190, 190);
     border-radius: 25px;
 }
+.add-deduct{
+    display: flex;
+    padding: 20px;
+}

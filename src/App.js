@@ -5,6 +5,7 @@ import img1 from './images/img1.avif';
 import logo1 from './images/logo1.jpeg';
 import Featured from './Components/Featured';
 import shoes from './images/shoes.avif'
+import AddDeduct from './Components/AddDeduct';
 
 function App() {
    const handleClick=()=>{
@@ -32,6 +33,7 @@ function App() {
      onClick={handleClick}
      
      />
+     <AddDeduct/>
      </>
     </div>
   );
