@@ -4,7 +4,7 @@ import Button from './Components/Button';
 import img1 from './images/img1.avif';
 import logo1 from './images/logo1.jpeg';
 import Featured from './Components/Featured';
-import shoes from './images/shoes.png'
+import shoes from './images/shoes.avif'
 
 function App() {
    const handleClick=()=>{
