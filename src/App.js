@@ -26,8 +26,9 @@ function App() {
      <Button
      mainImage={img1}
      iconImage={logo1}
-     mainText='abcd'
-     subText='1234'
+     mainText="Tom's bakery"
+     subText='30 mins'
+     distance='600km'
      onClick={handleClick}
      
      />
