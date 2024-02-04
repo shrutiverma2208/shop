@@ -53,3 +53,38 @@ font-size: 0;
     display: flex;
     padding: 20px;
 }
+
+.beverage-container{
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    margin-top: 20px;
+    border: 0.5px solid rgb(213, 196, 196);
+    border-radius: 12px;
+    margin: 7px;
+}
+.beverage-tile{
+    flex-grow: 1;
+    display:flex;
+    flex-direction: column;
+    margin-top: 17px;
+   
+   
+}
+.beverage-image{
+    max-width: 70%;
+    max-height: 70%;
+    
+}
+.beverage-image img {
+   height: 18vh;
+   width: 18vh;
+border-radius: 37px;
+   padding: 30px
+   
+  }
+  .price{
+     padding-top: 148px;
+     margin-left:-80px;
+  }
+ 
