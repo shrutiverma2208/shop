@@ -13,7 +13,7 @@ const AddDeduct = () => {
     setNumber(number+1)
   }
   const handleDeduct=()=>{
-    if(number>=0){
+    if(number>0){
     setNumber(number-1)
   }
   if(number==1){
@@ -22,6 +22,7 @@ const AddDeduct = () => {
   }
    const isToggle=()=>{
     setToggle(!toggle)
+    setNumber(1)
   }
 
 
