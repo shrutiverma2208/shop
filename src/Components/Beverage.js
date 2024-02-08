@@ -3,8 +3,8 @@ import AddDeduct from './AddDeduct'
 
 const Beverage = ({onClick,beverage,price,image,subText}) => {
   return (
-    <div style={{alignItem:'center',justifyContent:'center'}}>
-  <h1 style={{fontSize:'20px',marginTop:'35px'}}>Beverage</h1>
+    <div >
+  <h3 style={{fontSize:'19px',padding:'19px',width:'40%',overflow:'hidden'}}>Beverage</h3>
 
     <div className='beverage-container'>
         <div className='beverage-tile' onClick={onClick}>

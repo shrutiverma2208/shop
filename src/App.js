@@ -6,8 +6,9 @@ import logo1 from './images/logo1.jpeg';
 import milkshake from './images/milkshake.jpeg'
 import Featured from './Components/Featured';
 import shoes from './images/shoes.avif'
-import AddDeduct from './Components/AddDeduct';
+import Browse from './Components/Browse';
 import Beverage from './Components/Beverage';
+import haircut from './images/haircut.jpeg'
 
 function App() {
    const handleClick=()=>{
@@ -20,6 +21,9 @@ function App() {
 
    const handleBeverage=()=>{
     console.log('Beverage clicked')
+   }
+   const handleBrowser=()=>{
+    console.log('Browser Clicked')
    }
 
   return (
@@ -48,6 +52,11 @@ function App() {
      price='$22'
      image={milkshake}
 
+     />
+     <Browse
+     onClick={handleBrowser}
+     BrowserImage={haircut}
+     BrowserName='Salon'
      />
      </>
     </div>
