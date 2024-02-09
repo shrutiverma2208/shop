@@ -51,6 +51,9 @@ font-size: 0;
     border: 0.5px solid rgb(201, 190, 190);
     border-radius: 25px;
 }
+
+    
+
 .add-deduct{
     display: flex;
     
@@ -71,13 +74,34 @@ font-size: 0;
     border-radius: 12px;
     text-align: center;
     padding: 11px 16px 23px 17px;
-    width: 70vh;
+    
+    margin-right: 50px;
     height: 24vh;
     margin-bottom: '40px';
    overflow: hidden;
-
+   max-width: 600px;
+   min-width: 438px;
+}
+.beverage{
+    justify-content: center;
+    align-items:center;
     
 }
+    
+
+@media (max-width: 550px) {
+    .beverage-container{
+        font-size: smaller;
+    }
+}
+@media (max-width: 500px) {
+    .beverage-image img{
+      font-size: 6px; /* Reduce font size for smaller screens */
+      margin: 0px 9px -46px 100px;
+      height: 12vh;
+      width: 12vh; /* Adjust padding for smaller screens */
+    }
+  }
 .beverage-tile{
     flex-grow: 1;
     display:flex;
@@ -91,11 +115,11 @@ font-size: 0;
     
 
 .beverage-image img {
-   height: 18vh;
-   width: 18vh;
+   height: 16vh;
+   width: 16vh;
 border-radius: 37px;
    padding: 30px;
-   margin: 0px 9px -46px 172px;
+   margin: 0px 9px -46px 164px;
    
   }
   .price{
