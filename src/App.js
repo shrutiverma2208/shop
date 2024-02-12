@@ -30,7 +30,18 @@ function App() {
    const handleBrowser=()=>{
     console.log('Browser Clicked')
    }
-   
+   const handleHome=()=>{
+    console.log('Home clicked')
+   }
+   const handleSearch=()=>{
+    console.log('Search clicked')
+   }
+   const handleShopping=()=>{
+    console.log('Shopping clicked')
+   }
+   const handleAccount=()=>{
+    console.log('Account clicked')
+   }
    
    
   return (
@@ -75,7 +86,10 @@ function App() {
    title2='Search'
    title3='Account'
    title4='Shopping'
-     
+   onClick1={handleHome}
+   onClick2={handleSearch}
+   onClick3={handleAccount}
+   onClick4={handleShopping} 
      />
      </>
     </div>
