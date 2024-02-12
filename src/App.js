@@ -9,6 +9,11 @@ import shoes from './images/shoes.avif'
 import Browse from './Components/Browse';
 import Beverage from './Components/Beverage';
 import haircut from './images/haircut.jpeg'
+import BottomNavigation from './Components/BottomNavigation';
+import home from './images/home.svg'
+import search from './images/search.svg'
+import account from './images/account.svg'
+import shopping from './images/shopping.svg'
 
 function App() {
    const handleClick=()=>{
@@ -25,7 +30,9 @@ function App() {
    const handleBrowser=()=>{
     console.log('Browser Clicked')
    }
-
+   
+   
+   
   return (
     <div className="App">
       <>
@@ -57,6 +64,18 @@ function App() {
      onClick={handleBrowser}
      BrowserImage={haircut}
      BrowserName='Salon'
+     />
+
+     <BottomNavigation
+   image1={home}
+   image2={search}
+   image3={account}
+   image4={shopping}
+   title1='Home'
+   title2='Search'
+   title3='Account'
+   title4='Shopping'
+     
      />
      </>
     </div>

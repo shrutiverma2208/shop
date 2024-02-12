@@ -28,11 +28,11 @@ const AddDeduct = () => {
 
   return (
     <>
-    {toggle?<button style={{fontSize:'14px',padding:'7px 15px',borderRadius:'8px',color:'white',backgroundColor:'black',marginTop:'-2px',marginRight:'-157px'}} onClick={isToggle}>ADD +</button>:
+    {toggle?<button style={{fontSize:'14px',padding:'4px 12px',borderRadius:'8px',color:'white',backgroundColor:'black',marginTop:'-2px',marginRight:'-157px'}} onClick={isToggle}>ADD +</button>:
     <div className='add-deduct'>
-    <div style={{fontSize:'20px',padding:'0px 7px',border:'none',cursor:'pointer'}} onClick={handleDeduct}>-</div>
-   <h4 style={{fontSize:'20px',padding:'2px',fontWeight:'400'}}> {number} </h4> 
-    <div style={{fontSize:'20px',padding:'0px 5px',border:'none',cursor:'pointer'}} onClick={handleAdd}>+</div>
+    <div style={{fontSize:'14px',padding:'0px 7px',border:'none',cursor:'pointer'}} onClick={handleDeduct}>-</div>
+   <h4 style={{fontSize:'14px',padding:'2px',fontWeight:'400',width:'14px'}}> {number} </h4> 
+    <div style={{fontSize:'14px',padding:'0px 5px',border:'none',cursor:'pointer'}} onClick={handleAdd}>+</div>
   </div>
   }
     
