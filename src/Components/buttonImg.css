@@ -130,13 +130,31 @@ border-radius: 37px;
     margin-top: 40px;
  }
  .bottomNav-container{
-    display: grid;
+     
+    margin-top: 25px;
+    margin-bottom: 45px;
     justify-content: center;
     align-items: center;
-    margin: 35px;
+    
+   
 }
 .bottomNav-tile{
-    display: flex;
-    margin: 25px;
+    
+    width: 100%; /* Take the full width of its container */
+    display: flex; /* Use flexbox layout */
+    flex-direction: row; /* Arrange children in a row */
+    justify-content: space-between; 
+  color:grey;
     background-color: #f3efef;
+}
+.bottomNav-tile div:hover{
+    color: rgb(6, 6, 6);
+    transform: scale(1.1);
+    fill: black; /* Default color */
+    transition: fill 0.3s ease; 
+    
+   
+}
+.bottomNav-tile img:hover{
+    fill:black;
 }

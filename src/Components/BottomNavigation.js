@@ -3,7 +3,7 @@ import React from 'react'
 const BottomNavigation = ({image1,title1,image2,title2,image3,title3,image4,title4,onClick1,onClick2,onClick3,onClick4}) => {
   return (
  <div className='bottomNav-container'>
-        <h3 style={{fontSize:'19px'}}>Bottom Navigation</h3>
+        <h3 style={{fontSize:'19px', marginTop: '25px',marginBottom: '45px'}}>Bottom Navigation</h3>
     <div className='bottomNav-tile'>
    
       <div style={{margin:'14px',cursor:'pointer'}} onClick={onClick1}>  
