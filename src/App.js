@@ -14,6 +14,7 @@ import home from './images/home.svg'
 import search from './images/search.svg'
 import account from './images/account.svg'
 import shopping from './images/shopping.svg'
+import Calender from './Components/Calender/Calender';
 
 function App() {
    const handleClick=()=>{
@@ -91,6 +92,7 @@ function App() {
    onClick3={handleAccount}
    onClick4={handleShopping} 
      />
+     <Calender/>
      </>
     </div>
   );
