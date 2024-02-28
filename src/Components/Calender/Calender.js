@@ -10,8 +10,9 @@ const Calender = () => {
 
   return (
     <div className='calender-container'>
+        <h3 style={{fontSize:'20px'}}>Calender</h3>
       <label htmlFor="date">Select a Date:</label>
-      <input style={{fontSize:'20px'}}
+      <input style={{fontSize:'17px',margin:'44px',color: '#5a5151'}}
         type="date"
         id="date"
         value={selectedDate}
