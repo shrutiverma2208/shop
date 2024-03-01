@@ -1,0 +1,12 @@
+.table-container{
+    border: 2px solid black;
+}
+
+
+.table-container th{
+    font-size: 20px;
+}
+.table-container td{
+    font-size: 18px;
+    text-align: start;
+}

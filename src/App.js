@@ -15,6 +15,7 @@ import search from './images/search.svg'
 import account from './images/account.svg'
 import shopping from './images/shopping.svg'
 import Calender from './Components/Calender/Calender';
+import Table from './Components/Table/Table';
 
 function App() {
    const handleClick=()=>{
@@ -43,7 +44,12 @@ function App() {
    const handleAccount=()=>{
     console.log('Account clicked')
    }
-   
+   const data = [
+    { id: 1, name: 'SHRUTI', age: 25 },
+    { id: 2, name: 'ANT', age: 30 },
+    { id: 3, name: 'DONKEY', age: 35 },
+  ];
+  
    
   return (
     <div className="App">
@@ -93,6 +99,7 @@ function App() {
    onClick4={handleShopping} 
      />
      <Calender/>
+     <Table data={data} />
      </>
     </div>
   );
