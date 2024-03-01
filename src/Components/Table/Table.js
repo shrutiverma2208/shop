@@ -5,6 +5,7 @@ const Table = ({ data }) => {
     const [searchId, setSearchId] =useState('');
     const [searchName, setSearchName] =useState('');
     const [searchAge, setSearchAge] =useState('');
+    const [searchCgpa, setSearchCgpa] =useState('');
     const handleId=(e)=>{
         setSearchId(e.target.value)
     }
@@ -14,16 +15,19 @@ const Table = ({ data }) => {
     const handleAge=(e)=>{
         setSearchAge(e.target.value)
     }
+    const handleCgpa=(e)=>{
+        setSearchCgpa(e.target.value)
+    }
     
         return (
             <>
-           <h3 style={{fontSize:'20px'}}>Table</h3>
+           <h3 style={{fontSize:'20px',margin:'23px'}}>Table</h3>
           <table className='table-container'>
             <thead>
               <tr>
                 <th>ID
                     <br/>
-                <input style={{fontSize:'20px'}}
+                <input style={{fontSize:'17px'}}
                        type="number"
                        placeholder="ID"
                        value={searchId}
@@ -32,7 +36,7 @@ const Table = ({ data }) => {
                 
                 <th>Name
                     <br/>
-                <input style={{fontSize:'20px'}}
+                <input style={{fontSize:'17px'}}
                        type="text"
                        placeholder="Name"
                        value={searchName}
@@ -41,11 +45,20 @@ const Table = ({ data }) => {
                 
                 <th>Age
                 <br/>
-                <input style={{fontSize:'20px'}}
+                <input style={{fontSize:'17px'}}
                        type="number"
                        placeholder="Age"
                        value={searchAge}
                        onChange={handleAge}/>
+                </th>
+               
+                <th>Cgpa
+                <br/>
+                <input style={{fontSize:'17px'}}
+                       type="number"
+                       placeholder="Cgpa"
+                       value={searchCgpa}
+                       onChange={handleCgpa}/>
                 </th>
               </tr>
             </thead>
@@ -58,6 +71,7 @@ const Table = ({ data }) => {
                   <td>{item.id}</td>
                   <td>{item.name}</td>
                   <td>{item.age}</td>
+                  <td>{item.cgpa}</td>
                 </tr>
               ))}
             </tbody>

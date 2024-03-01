@@ -45,9 +45,9 @@ function App() {
     console.log('Account clicked')
    }
    const data = [
-    { id: 1, name: 'SHRUTI', age: 25 },
-    { id: 2, name: 'ANT', age: 30 },
-    { id: 3, name: 'DONKEY', age: 35 },
+    { id: 1, name: 'SHRUTI', age: 25, cgpa:7 },
+    { id: 2, name: 'ANT', age: 30,cgpa:6 },
+    { id: 3, name: 'DONKEY', age: 35, cgpa:9 },
   ];
   
    
