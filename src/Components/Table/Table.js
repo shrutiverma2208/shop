@@ -2,9 +2,17 @@ import React,{useState} from 'react'
 import './Table.css'
 
 const Table = ({ data }) => {
-    const [searchItem, setSearchItem] =useState('');
-    const handleSearch=(e)=>{
-        setSearchItem(e.target.value)
+    const [searchId, setSearchId] =useState('');
+    const [searchName, setSearchName] =useState('');
+    const [searchAge, setSearchAge] =useState('');
+    const handleId=(e)=>{
+        setSearchId(e.target.value)
+    }
+    const handleName=(e)=>{
+        setSearchName(e.target.value)
+    }
+    const handleAge=(e)=>{
+        setSearchAge(e.target.value)
     }
     
         return (
@@ -13,19 +21,39 @@ const Table = ({ data }) => {
           <table className='table-container'>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Age</th>
+                <th>ID
+                    <br/>
+                <input style={{fontSize:'20px'}}
+                       type="number"
+                       placeholder="ID"
+                       value={searchId}
+                       onChange={handleId}/>
+                </th>
+                
+                <th>Name
+                    <br/>
+                <input style={{fontSize:'20px'}}
+                       type="text"
+                       placeholder="Name"
+                       value={searchName}
+                       onChange={handleName}/>
+                </th>
+                
+                <th>Age
+                <br/>
+                <input style={{fontSize:'20px'}}
+                       type="number"
+                       placeholder="Age"
+                       value={searchAge}
+                       onChange={handleAge}/>
+                </th>
               </tr>
             </thead>
             <tbody>
-            <input style={{fontSize:'20px'}}
-            type="text"
-            placeholder="Search"
-            value={searchItem}
-            onChange={handleSearch}
-          />
+           
+          
               {data.map((item) => (
+             
                 <tr key={item.id}>
                   <td>{item.id}</td>
                   <td>{item.name}</td>
