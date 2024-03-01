@@ -17,7 +17,7 @@ const Table = ({ data }) => {
     
         return (
             <>
-           
+           <h3 style={{fontSize:'20px'}}>Table</h3>
           <table className='table-container'>
             <thead>
               <tr>
