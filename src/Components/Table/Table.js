@@ -6,6 +6,10 @@ const Table = ({ data }) => {
     const [searchName, setSearchName] =useState('');
     const [searchAge, setSearchAge] =useState('');
     const [searchCgpa, setSearchCgpa] =useState('');
+
+    const filteredData = data.filter((item) =>
+    item.name.toLowerCase().includes(searchName.toLowerCase())
+  );
     const handleId=(e)=>{
         setSearchId(e.target.value)
     }
@@ -65,7 +69,7 @@ const Table = ({ data }) => {
             <tbody>
            
           
-              {data.map((item) => (
+              {filteredData.map((item) => (
              
                 <tr key={item.id}>
                   <td>{item.id}</td>
