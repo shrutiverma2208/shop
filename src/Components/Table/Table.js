@@ -7,21 +7,41 @@ const Table = ({ data }) => {
     const [searchAge, setSearchAge] =useState('');
     const [searchCgpa, setSearchCgpa] =useState('');
 
-    const filteredData = data.filter((item) =>
-    item.name.toLowerCase().includes(searchName.toLowerCase())
-  );
-    const handleId=(e)=>{
-        setSearchId(e.target.value)
-    }
-    const handleName=(e)=>{
-        setSearchName(e.target.value)
-    }
-    const handleAge=(e)=>{
-        setSearchAge(e.target.value)
-    }
-    const handleCgpa=(e)=>{
-        setSearchCgpa(e.target.value)
-    }
+    const filteredData = data.filter(item => {
+      return (
+        item.id.toString().includes(searchId)&&
+        item.name.toLowerCase().includes(searchName.toLowerCase()) &&
+        item.age.toString().includes(searchAge) &&
+        item.cgpa.toString().includes(searchCgpa.toLowerCase())
+      );
+    });
+
+    const handleNameSearch =(e)=> {
+      if (e.key === 'Enter'){
+       setSearchName(e.target.value);
+      }
+      
+    };
+    const handleIdSearch =(e)=> {
+      if (e.key === 'Enter'){
+       setSearchId(e.target.value);
+      }
+      
+    };
+    const handleAgeSearch =(e)=> {
+      if (e.key === 'Enter'){
+       setSearchAge(e.target.value);
+      }
+      
+    };
+    const handleCgpaSearch =(e)=> {
+      if (e.key === 'Enter'){
+       setSearchCgpa(e.target.value);
+      }
+      
+    };
+  
+   
     
         return (
             <>
@@ -35,7 +55,8 @@ const Table = ({ data }) => {
                        type="number"
                        placeholder="ID"
                        value={searchId}
-                       onChange={handleId}/>
+                       onChange={(e)=>setSearchId(e.target.value)}
+                       onKeyUp={handleIdSearch}/>
                 </th>
                 
                 <th>Name
@@ -44,7 +65,9 @@ const Table = ({ data }) => {
                        type="text"
                        placeholder="Name"
                        value={searchName}
-                       onChange={handleName}/>
+                       
+                       onChange={(e)=>setSearchName(e.target.value)}
+                       onKeyUp={handleNameSearch}/>
                 </th>
                 
                 <th>Age
@@ -53,7 +76,8 @@ const Table = ({ data }) => {
                        type="number"
                        placeholder="Age"
                        value={searchAge}
-                       onChange={handleAge}/>
+                       onChange={(e)=>setSearchAge(e.target.value)}
+                       onKeyUp={handleAgeSearch}/>
                 </th>
                
                 <th>Cgpa
@@ -62,7 +86,8 @@ const Table = ({ data }) => {
                        type="number"
                        placeholder="Cgpa"
                        value={searchCgpa}
-                       onChange={handleCgpa}/>
+                       onChange={(e)=>setSearchCgpa(e.target.value)}
+                       onKeyUp={handleCgpaSearch}/>
                 </th>
               </tr>
             </thead>

@@ -48,6 +48,7 @@ function App() {
     { id: 1, name: 'SHRUTI', age: 25, cgpa:7 },
     { id: 2, name: 'ANT', age: 30,cgpa:6 },
     { id: 3, name: 'DONKEY', age: 35, cgpa:9 },
+    { id: 4, name: 'DON', age: 15, cgpa:8 }
   ];
   
    
