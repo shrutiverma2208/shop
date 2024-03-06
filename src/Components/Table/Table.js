@@ -1,52 +1,89 @@
-import React,{useState} from 'react'
+import React,{useMemo, useState} from 'react'
 import './Table.css'
 
 const Table = ({ data }) => {
+  console.log('rendering')
     const [searchId, setSearchId] =useState('');
     const [searchName, setSearchName] =useState('');
     const [searchAge, setSearchAge] =useState('');
     const [searchCgpa, setSearchCgpa] =useState('');
+    const [name,setName]=useState('');
+    const [enteredName,setEnteredName]=useState('')
+    
 
-    const filteredData = data.filter(item => {
+   console.log('outside filteredDataHandler')
+
+    const filteredDataHandler = useMemo(()=>{
+    return  data.filter(item => {
+      console.log('inside  filteredDataHandler')
       return (
+        
         item.id.toString().includes(searchId)&&
         item.name.toLowerCase().includes(searchName.toLowerCase()) &&
         item.age.toString().includes(searchAge) &&
         item.cgpa.toString().includes(searchCgpa.toLowerCase())
+        
       );
-    });
-
-    const handleNameSearch =(e)=> {
-      if (e.key === 'Enter'){
-       setSearchName(e.target.value);
-      }
-      
-    };
-    const handleIdSearch =(e)=> {
-      if (e.key === 'Enter'){
-       setSearchId(e.target.value);
-      }
-      
-    };
-    const handleAgeSearch =(e)=> {
-      if (e.key === 'Enter'){
-       setSearchAge(e.target.value);
-      }
-      
-    };
-    const handleCgpaSearch =(e)=> {
-      if (e.key === 'Enter'){
-       setSearchCgpa(e.target.value);
-      }
-      
-    };
+    })
   
+  },[searchAge,searchCgpa,searchId,searchName])
+
+  const handleSearch = (e, column) => {
+    console.log('inside handle search')
+    const value = e.target.value;
+    switch (column) {
+      case 'name':
+        setSearchName(value);
+        break;
+      case 'id':
+        setSearchId(value);
+        break;
+      case 'age':
+        setSearchAge(value);
+        break;
+        case 'cgpa':
+          setSearchCgpa(value);
+          break;
+      default:
+        break;
+    }
+  };
+  const handleName=(e)=>{
+if(e.key==='Enter' && name.trim()!==''){
+  setEnteredName(name.trim());
+      setName('');
+}
+  }
+
+    const handleKeyPress = (e) => {
+      console.log('inside enter')
+      if (e.key === 'Enter') {
+        e.preventDefault();
+      }
+    };
    
     
         return (
-            <>
+            <div>
+           
            <h3 style={{fontSize:'20px',margin:'23px'}}>Table</h3>
+           <div>
+           <input 
+            style={{fontSize:'17px',borderRadius:'20px',padding:'7px',margin:'10px'}}
+            type="text"
+            placeholder='Enter your name...'
+            value={name}
+            onChange={(e)=>setName(e.target.value)}
+            onKeyDown={handleName}
+            />
+            <div style={{fontSize:'20px',margin:'10px'}}>
+              User Name:  { enteredName}
+              
+              
+            </div>
+            </div>
           <table className='table-container'>
+            
             <thead>
               <tr>
                 <th>ID
@@ -55,8 +92,8 @@ const Table = ({ data }) => {
                        type="number"
                        placeholder="ID"
                        value={searchId}
-                       onChange={(e)=>setSearchId(e.target.value)}
-                       onKeyUp={handleIdSearch}/>
+                       onChange={(e)=>handleSearch(e,'id')}
+                       onKeyDown={handleKeyPress}/>
                 </th>
                 
                 <th>Name
@@ -66,8 +103,8 @@ const Table = ({ data }) => {
                        placeholder="Name"
                        value={searchName}
                        
-                       onChange={(e)=>setSearchName(e.target.value)}
-                       onKeyUp={handleNameSearch}/>
+                       onChange={(e)=>handleSearch(e,'name')}
+                       onKeyDown={handleKeyPress}/>
                 </th>
                 
                 <th>Age
@@ -76,8 +113,8 @@ const Table = ({ data }) => {
                        type="number"
                        placeholder="Age"
                        value={searchAge}
-                       onChange={(e)=>setSearchAge(e.target.value)}
-                       onKeyUp={handleAgeSearch}/>
+                       onChange={(e)=>handleSearch(e,'age')}
+                       onKeyDown={handleKeyPress}/>
                 </th>
                
                 <th>Cgpa
@@ -86,17 +123,17 @@ const Table = ({ data }) => {
                        type="number"
                        placeholder="Cgpa"
                        value={searchCgpa}
-                       onChange={(e)=>setSearchCgpa(e.target.value)}
-                       onKeyUp={handleCgpaSearch}/>
+                       onChange={(e)=>handleSearch(e,'cgpa')}
+                       onKeyDown={handleKeyPress}/>
                 </th>
               </tr>
             </thead>
             <tbody>
            
           
-              {filteredData.map((item) => (
-             
-                <tr key={item.id}>
+              {filteredDataHandler.map((item,index) => (
+                
+                 <tr key={index}>
                   <td>{item.id}</td>
                   <td>{item.name}</td>
                   <td>{item.age}</td>
@@ -105,10 +142,10 @@ const Table = ({ data }) => {
               ))}
             </tbody>
           </table>
-          </>
+          
+          </div>
         );
               }
-      
       export default Table;
 
-
+            
