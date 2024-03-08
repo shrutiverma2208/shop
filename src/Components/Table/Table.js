@@ -28,26 +28,7 @@ const Table = ({ data }) => {
   
   },[searchAge,searchCgpa,searchId,searchName])
 
-  const handleSearch = (e, column) => {
-    console.log('inside handle search')
-    const value = e.target.value;
-    switch (column) {
-      case 'name':
-        setSearchName(value);
-        break;
-      case 'id':
-        setSearchId(value);
-        break;
-      case 'age':
-        setSearchAge(value);
-        break;
-        case 'cgpa':
-          setSearchCgpa(value);
-          break;
-      default:
-        break;
-    }
-  };
+  
   const handleName=(e)=>{
 if(e.key==='Enter' && name.trim()!==''){
   setEnteredName(name.trim());
@@ -55,14 +36,30 @@ if(e.key==='Enter' && name.trim()!==''){
 }
   }
 
-    const handleKeyPress = (e) => {
+    const handleIdKeyPress = (e) => {
       console.log('inside enter')
       if (e.key === 'Enter') {
-        e.preventDefault();
+        setSearchId(e.target.value)
       }
     };
-   
-    
+    const handleNameKeyPress = (e) => {
+      console.log('inside enter')
+      if (e.key === 'Enter') {
+        setSearchName(e.target.value)
+      }
+    };
+    const handleAgeKeyPress = (e) => {
+      console.log('inside enter')
+      if (e.key === 'Enter') {
+        setSearchAge(e.target.value)
+      }
+    };
+    const handleCgpaKeyPress = (e) => {
+      console.log('inside enter')
+      if (e.key === 'Enter') {
+        setSearchCgpa(e.target.value)
+      }
+    };
         return (
             <div>
            
@@ -76,7 +73,7 @@ if(e.key==='Enter' && name.trim()!==''){
             onChange={(e)=>setName(e.target.value)}
             onKeyDown={handleName}
             />
-            <div style={{fontSize:'20px',margin:'10px'}}>
+            <div style={{fontSize:'px',margin:'10px'}}>
               User Name:  { enteredName}
               
               
@@ -91,9 +88,8 @@ if(e.key==='Enter' && name.trim()!==''){
                 <input style={{fontSize:'17px'}}
                        type="number"
                        placeholder="ID"
-                       value={searchId}
-                       onChange={(e)=>handleSearch(e,'id')}
-                       onKeyDown={handleKeyPress}/>
+                      
+                       onKeyDown={handleIdKeyPress}/>
                 </th>
                 
                 <th>Name
@@ -101,10 +97,8 @@ if(e.key==='Enter' && name.trim()!==''){
                 <input style={{fontSize:'17px'}}
                        type="text"
                        placeholder="Name"
-                       value={searchName}
                        
-                       onChange={(e)=>handleSearch(e,'name')}
-                       onKeyDown={handleKeyPress}/>
+                       onKeyDown={handleNameKeyPress}/>
                 </th>
                 
                 <th>Age
@@ -112,9 +106,8 @@ if(e.key==='Enter' && name.trim()!==''){
                 <input style={{fontSize:'17px'}}
                        type="number"
                        placeholder="Age"
-                       value={searchAge}
-                       onChange={(e)=>handleSearch(e,'age')}
-                       onKeyDown={handleKeyPress}/>
+                       
+                       onKeyDown={handleAgeKeyPress}/>
                 </th>
                
                 <th>Cgpa
@@ -122,9 +115,8 @@ if(e.key==='Enter' && name.trim()!==''){
                 <input style={{fontSize:'17px'}}
                        type="number"
                        placeholder="Cgpa"
-                       value={searchCgpa}
-                       onChange={(e)=>handleSearch(e,'cgpa')}
-                       onKeyDown={handleKeyPress}/>
+                      
+                       onKeyDown={handleCgpaKeyPress}/>
                 </th>
               </tr>
             </thead>
