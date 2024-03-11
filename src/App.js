@@ -45,10 +45,13 @@ function App() {
     console.log('Account clicked')
    }
    const data = [
-    { id: 1, name: 'SHRUTI', age: 25, cgpa:7 },
-    { id: 2, name: 'ANT', age: 30,cgpa:6 },
-    { id: 3, name: 'DONKEY', age: 35, cgpa:9 },
-    { id: 4, name: 'DON', age: 15, cgpa:8 }
+    { id: 1, name: 'SHRUTI', age: 25, cgpa:7,city:'Bhopal',phone:926521444458 },
+    { id: 2, name: 'ANT', age: 30,cgpa:6,city:'Kanpur',phone:926521444458 },
+    { id: 3, name: 'ANT', age: 35, cgpa:9,city:'Goa',phone:926521444458 },
+    { id: 5, name: 'Harry', age: 30, cgpa:8,city:'Chennai',phone:926521444458 },
+    { id: 6, name: 'Ron', age: 32, cgpa:9,city:'kerla',phone:926521444458 },
+    { id: 7, name: 'Harmoine', age: 15, cgpa:10,city:'Haryana',phone:926521444458 },
+    
   ];
   
    

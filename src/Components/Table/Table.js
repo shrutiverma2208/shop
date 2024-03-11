@@ -7,10 +7,12 @@ const Table = ({ data }) => {
     const [searchName, setSearchName] =useState('');
     const [searchAge, setSearchAge] =useState('');
     const [searchCgpa, setSearchCgpa] =useState('');
+    const [searchCity, setSearchCity] =useState('');
+    const [searchMobile, setSearchMobile] =useState('');
     const [name,setName]=useState('');
     const [enteredName,setEnteredName]=useState('')
     
-
+console.log(data)
    console.log('outside filteredDataHandler')
 
     const filteredDataHandler = useMemo(()=>{
@@ -21,12 +23,13 @@ const Table = ({ data }) => {
         item.id.toString().includes(searchId)&&
         item.name.toLowerCase().includes(searchName.toLowerCase()) &&
         item.age.toString().includes(searchAge) &&
-        item.cgpa.toString().includes(searchCgpa.toLowerCase())
-        
+        item.cgpa.toString().includes(searchCgpa.toLowerCase()) &&
+        item.phone.toString().includes(searchMobile)&&
+        item.city.toLowerCase().includes(searchCity.toLowerCase()) 
       );
     })
   
-  },[searchAge,searchCgpa,searchId,searchName])
+  },[searchAge,searchCgpa,searchId,searchName,searchCity,searchMobile])
 
   
   const handleName=(e)=>{
@@ -58,6 +61,20 @@ if(e.key==='Enter' && name.trim()!==''){
       console.log('inside enter')
       if (e.key === 'Enter') {
         setSearchCgpa(e.target.value)
+      }
+    };
+
+    const handleCityKeyPress = (e) => {
+      console.log('inside enter')
+      if (e.key === 'Enter') {
+        setSearchCity(e.target.value)
+      }
+    };
+
+    const handleMobileKeyPress = (e) => {
+      console.log('inside enter')
+      if (e.key === 'Enter') {
+        setSearchMobile(e.target.value)
       }
     };
         return (
@@ -118,6 +135,23 @@ if(e.key==='Enter' && name.trim()!==''){
                       
                        onKeyDown={handleCgpaKeyPress}/>
                 </th>
+                <th>City
+                <br/>
+                <input style={{fontSize:'17px'}}
+                       type="text"
+                       placeholder="City"
+                      
+                       onKeyDown={handleCityKeyPress}/>
+                </th>
+
+                <th>Mobile Number
+                <br/>
+                <input style={{fontSize:'17px'}}
+                       type="number"
+                       placeholder="Mobile number"
+                      
+                       onKeyDown={handleMobileKeyPress}/>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -130,6 +164,8 @@ if(e.key==='Enter' && name.trim()!==''){
                   <td>{item.name}</td>
                   <td>{item.age}</td>
                   <td>{item.cgpa}</td>
+                  <td>{item.city}</td>
+                  <td>{item.phone}</td>
                 </tr>
               ))}
             </tbody>
