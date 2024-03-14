@@ -11,26 +11,47 @@ const Table = ({ data }) => {
     const [searchMobile, setSearchMobile] =useState('');
     const [name,setName]=useState('');
     const [enteredName,setEnteredName]=useState('')
+    const [ageOperator,setAgeOperator]=useState('')
     
 console.log(data)
-   console.log('outside filteredDataHandler')
+const applyOperator = (value, operator, searchValue) => {
+  if (!operator || !searchValue) {
+    return true;
+  }
+
+  const intValue = parseInt(value);
+  const searchIntValue = parseInt(searchValue);
+
+  switch (operator) {
+    case '<':
+      return intValue < searchIntValue;
+    case '>':
+      return intValue > searchIntValue;
+    case '=':
+      return intValue === searchIntValue;
+    default:
+      return true; 
+  }
+}
+  
 
     const filteredDataHandler = useMemo(()=>{
     return  data.filter(item => {
-      console.log('inside  filteredDataHandler')
-      return (
         
-        item.id.toString().includes(searchId)&&
-        item.name.toLowerCase().includes(searchName.toLowerCase()) &&
-        item.age.toString().includes(searchAge) &&
-        item.cgpa.toString().includes(searchCgpa.toLowerCase()) &&
-        item.phone.toString().includes(searchMobile)&&
-        item.city.toLowerCase().includes(searchCity.toLowerCase()) 
-      );
-    })
+       const id1= item.id.toString().includes(searchId)
+       const name1= item.name.toLowerCase().includes(searchName.toLowerCase()) 
+       const age1= applyOperator(item.age, ageOperator,searchAge)
+       const cgpa1= item.cgpa.toString().includes(searchCgpa.toLowerCase()) 
+       const phone1= item.phone.toString().includes(searchMobile)
+       const city1=item.city.toLowerCase().includes(searchCity.toLowerCase()) 
+
+        return id1 && name1 && age1 && cgpa1 && phone1 && city1;
+    
+    });
   
   },[searchAge,searchCgpa,searchId,searchName,searchCity,searchMobile])
 
+ 
   
   const handleName=(e)=>{
 if(e.key==='Enter' && name.trim()!==''){
@@ -90,7 +111,7 @@ if(e.key==='Enter' && name.trim()!==''){
             onChange={(e)=>setName(e.target.value)}
             onKeyDown={handleName}
             />
-            <div style={{fontSize:'px',margin:'10px'}}>
+            <div style={{fontSize:'18px',margin:'10px'}}>
               User Name:  { enteredName}
               
               
@@ -125,6 +146,17 @@ if(e.key==='Enter' && name.trim()!==''){
                        placeholder="Age"
                        
                        onKeyDown={handleAgeKeyPress}/>
+                <select style={{fontSize:'16px'}}
+                value={ageOperator}
+                onChange={(e) => setAgeOperator(e.target.value)}
+                >
+                  
+                <option style={{fontSize:'16px'}} value="">Select Operator</option>
+                <option style={{fontSize:'16px'}} value="<">Less than</option>
+                <option style={{fontSize:'16px'}} value=">">Greater than</option>
+                <option style={{fontSize:'16px'}} value="=">Equal to</option>
+                
+              </select>
                 </th>
                
                 <th>Cgpa
