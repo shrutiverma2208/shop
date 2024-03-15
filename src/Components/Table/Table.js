@@ -48,7 +48,7 @@ const Table = ({ data }) => {
       ( searchId === ''|| item.id.toString().includes(searchId)) &&
        (searchName===''|| item.name.toLowerCase().includes(searchName.toLowerCase()) )&&
        (searchAge===''|| applyOperator(item.age, searchAge))&&
-       (searchCgpa===''|| item.cgpa.toString().includes(searchCgpa.toLowerCase())) &&
+       (searchCgpa===''|| applyOperator(item.cgpa,searchCgpa)) &&
        (searchMobile===''|| item.phone.toString().includes(searchMobile))&&
        (searchCity===''||item.city.toLowerCase().includes(searchCity.toLowerCase()) )
 
@@ -151,7 +151,7 @@ if(e.key==='Enter' && name.trim()!==''){
                 <br/>
                 <input style={{fontSize:'17px'}}
                        type="text"
-                       placeholder="Age(<30,>30,=30)"
+                       placeholder="Age(<30,>30)"
                        
                        onKeyDown={handleAgeKeyPress}/>
                 
@@ -160,8 +160,8 @@ if(e.key==='Enter' && name.trim()!==''){
                 <th>Cgpa
                 <br/>
                 <input style={{fontSize:'17px'}}
-                       type="number"
-                       placeholder="Cgpa"
+                       type="text"
+                       placeholder="Cgpa(<5,>5)"
                       
                        onKeyDown={handleCgpaKeyPress}/>
                 </th>
