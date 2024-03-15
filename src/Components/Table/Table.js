@@ -151,7 +151,7 @@ if(e.key==='Enter' && name.trim()!==''){
                 <br/>
                 <input style={{fontSize:'17px'}}
                        type="text"
-                       placeholder="Age(<5,>15,=30)"
+                       placeholder="Age(<30,>30,=30)"
                        
                        onKeyDown={handleAgeKeyPress}/>
                 
