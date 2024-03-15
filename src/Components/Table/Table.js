@@ -11,46 +11,54 @@ const Table = ({ data }) => {
     const [searchMobile, setSearchMobile] =useState('');
     const [name,setName]=useState('');
     const [enteredName,setEnteredName]=useState('')
-    const [ageOperator,setAgeOperator]=useState('')
     
-console.log(data)
-const applyOperator = (value, operator, searchValue) => {
-  if (!operator || !searchValue) {
-    return true;
-  }
+    const applyOperator = (value, searchValue) => {
+      if ( !searchValue) {
+        return true;
+      }
+    
+      const operatorIndex = searchValue.search(/[<>=]/);
+      if (operatorIndex !== -1) {
+        const operator = searchValue[operatorIndex];
+        const searchIntValue = parseInt(searchValue.slice(operatorIndex + 1));
+    
+    
+      switch (operator) {
+        case '<':
+          return parseInt(value) < searchIntValue;
+        case '>':
+          return parseInt(value) > searchIntValue;
+        case '=':
+          return parseInt(value) === searchIntValue;
+          case '<=':
+            return parseInt(value) <= searchIntValue;
+          case '>=':
+            return parseInt(value) >= searchIntValue;
+        default:
+          return true; 
+      }
+    }
+      return parseInt(value) === parseInt(searchValue)
+    }
 
-  const intValue = parseInt(value);
-  const searchIntValue = parseInt(searchValue);
-
-  switch (operator) {
-    case '<':
-      return intValue < searchIntValue;
-    case '>':
-      return intValue > searchIntValue;
-    case '=':
-      return intValue === searchIntValue;
-    default:
-      return true; 
-  }
-}
-  
 
     const filteredDataHandler = useMemo(()=>{
     return  data.filter(item => {
-        
-       const id1= item.id.toString().includes(searchId)
-       const name1= item.name.toLowerCase().includes(searchName.toLowerCase()) 
-       const age1= applyOperator(item.age, ageOperator,searchAge)
-       const cgpa1= item.cgpa.toString().includes(searchCgpa.toLowerCase()) 
-       const phone1= item.phone.toString().includes(searchMobile)
-       const city1=item.city.toLowerCase().includes(searchCity.toLowerCase()) 
+        return(
+      ( searchId === ''|| item.id.toString().includes(searchId)) &&
+       (searchName===''|| item.name.toLowerCase().includes(searchName.toLowerCase()) )&&
+       (searchAge===''|| applyOperator(item.age, searchAge))&&
+       (searchCgpa===''|| item.cgpa.toString().includes(searchCgpa.toLowerCase())) &&
+       (searchMobile===''|| item.phone.toString().includes(searchMobile))&&
+       (searchCity===''||item.city.toLowerCase().includes(searchCity.toLowerCase()) )
 
-        return id1 && name1 && age1 && cgpa1 && phone1 && city1;
-    
+        
+        )
     });
   
   },[searchAge,searchCgpa,searchId,searchName,searchCity,searchMobile])
 
+  
  
   
   const handleName=(e)=>{
@@ -142,21 +150,11 @@ if(e.key==='Enter' && name.trim()!==''){
                 <th>Age
                 <br/>
                 <input style={{fontSize:'17px'}}
-                       type="number"
-                       placeholder="Age"
+                       type="text"
+                       placeholder="Age(<5,>15,=30)"
                        
                        onKeyDown={handleAgeKeyPress}/>
-                <select style={{fontSize:'16px'}}
-                value={ageOperator}
-                onChange={(e) => setAgeOperator(e.target.value)}
-                >
-                  
-                <option style={{fontSize:'16px'}} value="">Select Operator</option>
-                <option style={{fontSize:'16px'}} value="<">Less than</option>
-                <option style={{fontSize:'16px'}} value=">">Greater than</option>
-                <option style={{fontSize:'16px'}} value="=">Equal to</option>
                 
-              </select>
                 </th>
                
                 <th>Cgpa
