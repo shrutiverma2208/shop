@@ -62,7 +62,7 @@ const Table = ({ data }) => {
  
   
   const handleName=(e)=>{
-if(e.key==='Enter' && name.trim()!==''){
+if(e.keyCode===13 && name.trim()!==''){
   setEnteredName(name.trim());
       setName('');
 }
@@ -70,39 +70,39 @@ if(e.key==='Enter' && name.trim()!==''){
 
     const handleIdKeyPress = (e) => {
       console.log('inside enter')
-      if (e.key === 'Enter') {
+      if (e.keyCode === 13) {
         setSearchId(e.target.value)
       }
     };
     const handleNameKeyPress = (e) => {
       console.log('inside enter')
-      if (e.key === 'Enter') {
+      if (e.keyCode === 13) {
         setSearchName(e.target.value)
       }
     };
     const handleAgeKeyPress = (e) => {
       console.log('inside enter')
-      if (e.key === 'Enter') {
+      if (e.keyCode === 13) {
         setSearchAge(e.target.value)
       }
     };
     const handleCgpaKeyPress = (e) => {
       console.log('inside enter')
-      if (e.key === 'Enter') {
+      if (e.keyCode === 13) {
         setSearchCgpa(e.target.value)
       }
     };
 
     const handleCityKeyPress = (e) => {
       console.log('inside enter')
-      if (e.key === 'Enter') {
+      if (e.keyCode === 13) {
         setSearchCity(e.target.value)
       }
     };
 
     const handleMobileKeyPress = (e) => {
       console.log('inside enter')
-      if (e.key === 'Enter') {
+      if (e.keyCode === 13) {
         setSearchMobile(e.target.value)
       }
     };
@@ -117,8 +117,8 @@ if(e.key==='Enter' && name.trim()!==''){
             placeholder='Enter your name...'
             value={name}
             onChange={(e)=>setName(e.target.value)}
-           
-            onKeyPress={handleName}
+            
+            onKeyUp={handleName}
             />
             <div style={{fontSize:'18px',margin:'10px'}}>
               User Name:  { enteredName}
