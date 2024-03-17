@@ -117,7 +117,8 @@ if(e.key==='Enter' && name.trim()!==''){
             placeholder='Enter your name...'
             value={name}
             onChange={(e)=>setName(e.target.value)}
-            onKeyUp={handleName}
+           
+            onKeyPress={handleName}
             />
             <div style={{fontSize:'18px',margin:'10px'}}>
               User Name:  { enteredName}
